@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import BrowserRouter from 'react-dom';
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
 import { graphql, compose, withApollo } from 'react-apollo';
 import { gql } from "graphql-tag";
 import logo from './logo.svg';
@@ -8,6 +9,7 @@ import Button from './Button';
 import WeatherData from './Table'
 import Navbar from './navbar'
 import SignUP from './signUp'
+import Login from './login'
 
 class App extends Component {
   constructor(props) {
@@ -38,19 +40,24 @@ class App extends Component {
   // }
   render() {
     return (
-      <div className="App">
-        <Navbar />
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Reac</h1>
-        </header>
-
-
-        <SignUP />
-        {/* <WeatherData /> */}
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route exact path="/sign-up" component={SignUP} />
+          <Route exact path="/sign-up" component={SignUP} />
+        </Switch>
+      </Router>
     );
   }
 }
-
-export default compose(withApollo)(App)
+export default App;
+// const App = () => {
+//   return (
+//     <Router>
+//       <Switch>
+//         <Route path="/" exact component={Login} />
+//       </Switch>
+//     </Router>
+//   )
+// }
+// export default App;

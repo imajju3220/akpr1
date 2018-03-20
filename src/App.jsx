@@ -42,14 +42,12 @@ class App extends Component {
         <Navbar />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React {this.state.count}</h1>
+          <h1 className="App-title">Welcome to Reac</h1>
         </header>
-        <Button ashwani={() => this.ashwani()} count={this.state.count} />
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+
         <SignUP />
-        <WeatherData />
+        {/* <WeatherData /> */}
       </div>
     );
   }

@@ -1,25 +1,9 @@
 import React, { Component } from "react";
 import { Modal, FormControl, FormGroup, Col, Row, ControlLabel, Button, Form, HelpBlock } from "react-bootstrap";
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-import validate from 'react-joi-validation';
-import ReactJoiValidations from 'react-joi-validation'
 import Joi from 'joi-browser';
 
-var schema = Joi.object().keys({
-  username: Joi.string().required(),
-  password: Joi.string().min(8).required()
-});
-
-const {
-  user: { username, password },
-  errors, changeHandler, validateHandler
-} = this.props;
-
-const Joi = require('joi-browser')
-
 const schema = Joi.object().keys({
-
   username: Joi.string().required().error((errors) => {
     return {
       template: 'contains {{errors}} errors, here is the list : {{codes}}',

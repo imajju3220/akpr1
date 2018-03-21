@@ -8,9 +8,9 @@ import './App.css';
 import Button from './Button';
 import WeatherData from './Table'
 // import Navbar from './navbar;'
-import SignUP from './signUp';
 import Login from './login';
-import SingUp from './sign-up/';
+import SingUp from './sign-up';
+import Dashboard from './dashboard';
 
 class App extends Component {
   constructor(props) {
@@ -42,14 +42,13 @@ class App extends Component {
   render() {
     return (
 
-      // <Router>
-      //   <Switch>
-      //     <Route exact path="/" component={Login} />
-      //     <Route exact path="/sign-up" component={SignUP} />
-      //     <Route exact path="/sign-up" component={SignUP} />
-      //   </Switch>
-      // </Router>
-      <SingUp />
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route exact path="/sign-up" component={SingUp} />
+          <Route exact path="/dashboard" component={Dashboard} />
+        </Switch>
+      </Router>
     );
   }
 }

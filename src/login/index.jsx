@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Modal, FormControl, FormGroup, Col, Row, ControlLabel, Button, Form } from "react-bootstrap";
-
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 const Title = styled.h1`
   font-size: 1.5em;
@@ -13,7 +13,7 @@ class Login extends Component {
     return (
       <div className="static-modal">
         <Modal.Dialog>
-          <Modal.Header>
+          <Modal.Header className="text-center">
             <Modal.Title>Login to Your Account</Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -43,7 +43,7 @@ class Login extends Component {
                 </FormGroup>
               </Form>
               <Col sm={12} className="login-help">
-                <a href="#">Register</a>
+                Already Have Account <Link to="/sign-up">SignUp</Link>
               </Col>
             </Row>
           </Modal.Body>

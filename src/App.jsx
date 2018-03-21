@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Grid } from "react-bootstrap";
 
 import { graphql, compose, withApollo } from 'react-apollo';
 import { gql } from "graphql-tag";
-import logo from './logo.svg';
-import './App.css';
-import Button from './Button';
-import WeatherData from './Table'
-// import Navbar from './navbar;'
 import Login from './login';
 import SingUp from './sign-up';
 import Dashboard from './dashboard';
@@ -41,13 +37,14 @@ class App extends Component {
   // }
   render() {
     return (
-
       <Router>
         <Switch>
+          {/* <Grid> */}
           <Route exact path="/" component={Login} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/sign-up" component={SingUp} />
           <Route exact path="/dashboard" component={Dashboard} />
+          {/* </Grid> */}
         </Switch>
       </Router>
     );

@@ -8,7 +8,7 @@ body {
 
 .modal-dialog {
   padding: 30px;
-  max-width: 450px;
+  max-width: 700px;
   width: 100% !important;
   background-color: #F7F7F7;
   border-radius: 2px;
@@ -21,6 +21,8 @@ body {
   transform: translateX(-50%) translateY(-50%);
 }
 
+.sign_custom a h3{ color: #000; font-weight: bold;}
+.create_acc{ color: #000; font-weight: bold;}
 .modal-content {
   border: 0;
   padding: 0;
@@ -80,9 +82,9 @@ input[type=password]:hover {
   color: #fff;
   text-shadow: 0 1px rgba(0, 0, 0, 0.1);
   background-color: #4d90fe;
-  padding: 17px 0px;
+  padding: 10px 0px;
   font-family: roboto;
-  font-size: 14px;
+  font-size: 29px;
   width: 100%;
   /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
 }

@@ -2,12 +2,7 @@ import React, { Component } from "react";
 import { Modal, FormControl, FormGroup, Col, Row, ControlLabel, Button, Form } from "react-bootstrap";
 import { Link } from 'react-router-dom'
 
-import styled from 'styled-components'
-const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
-`;
+
 
 class SingUp extends Component {
   render() {

@@ -2,14 +2,24 @@ import React, { Component } from "react";
 import { Modal, FormControl, FormGroup, Col, Row, ControlLabel, Button, Form } from "react-bootstrap";
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
-`;
+import validate from 'react-joi-validation';
+import ReactJoiValidations from 'react-joi-validation'
+import Joi from 'joi-browser';
+
+var schema = Joi.object().keys({
+  username: Joi.string().required(),
+  password: Joi.string().min(8).required()
+});
+
+const {
+  user: { username, password },
+  errors, changeHandler, validateHandler
+} = this.props;
 
 class Login extends Component {
   render() {
+
+
     return (
       <div className="static-modal">
         <Modal.Dialog>
@@ -24,7 +34,10 @@ class Login extends Component {
                     Email/Username
                 </Col>
                   <Col sm={12}>
-                    <FormControl type="text" placeholder="Email/Username" />
+                    <FormControl type="text"
+                      placeholder="Email/Username"
+                      value={username}
+                    />
                   </Col>
                 </FormGroup>
 

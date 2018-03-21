@@ -8,12 +8,12 @@ const Title = styled.h1`
   color: palevioletred;
 `;
 
-class SingUp extends Component {
+class SingUpTwo extends Component {
   render() {
     return (
       <div className="static-modal">
         <Modal.Dialog>
-          <div className="create_acc"><h3>Create Your Account</h3></div>
+          <div className="create_acc"><h3>Create Your Account2</h3></div>
           <Modal.Body>
             <Row>
               <Form horizontal>
@@ -64,4 +64,4 @@ class SingUp extends Component {
     )
   }
 }
-export default SingUp;
+export default SingUpTwo;

@@ -7,9 +7,10 @@ import logo from './logo.svg';
 import './App.css';
 import Button from './Button';
 import WeatherData from './Table'
-import Navbar from './navbar'
-import SignUP from './signUp'
-import Login from './login'
+// import Navbar from './navbar;'
+import SignUP from './signUp';
+import Login from './login';
+import SingUp from './sign-up/';
 
 class App extends Component {
   constructor(props) {
@@ -40,13 +41,15 @@ class App extends Component {
   // }
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/sign-up" component={SignUP} />
-          <Route exact path="/sign-up" component={SignUP} />
-        </Switch>
-      </Router>
+
+      // <Router>
+      //   <Switch>
+      //     <Route exact path="/" component={Login} />
+      //     <Route exact path="/sign-up" component={SignUP} />
+      //     <Route exact path="/sign-up" component={SignUP} />
+      //   </Switch>
+      // </Router>
+      <SingUp />
     );
   }
 }

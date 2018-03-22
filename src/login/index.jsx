@@ -4,16 +4,8 @@ import { Link } from 'react-router-dom'
 import Joi from 'joi-browser';
 
 const schema = Joi.object().keys({
-  username: Joi.string().required().error((errors) => {
-    return {
-      template: 'contains {{errors}} errors, here is the list : {{codes}}',
-      context: {
-        errors: errors.length,
-        codes: errors.map((err) => err.type)
-      }
-    };
-  }),
-  password: Joi.string().required()
+  username: Joi.string().min(6).max(30).required().optional(),
+  password: Joi.string().required().optional()
 
 })
 
@@ -30,37 +22,69 @@ class Login extends Component {
     e.preventDefault();
     const { username, password } = this.state
     console.log(username, password);
-
     let input = {
       username: username,
       password: password
     }
+
+    var res = Joi.validate(input, schema, { abortEarly: false })
+
+    console.log(res.error.details)
     // const result = Joi.validate(value, schema);
     // clearEmpties(input)
-    Joi.validate(input, schema, (err, input) => {
-      if (username == '') {
-        this.setState({
-          usernameError: true
-        })
-      } else {
-        usernameError: false
-      }
-      if (password == '') {
-        this.setState({
-          passError: true
-        })
-      } else {
-        usernameError: false
-      }
-    });
+    // Joi.validate(input, schema, (err, input) => {
+    //   console.log(err);
+    //   username: username;
+    //   password: password
+    //   if (username == '') {
+    //     this.setState({
+    //       usernameError: true
+    //     })
+    //   } else {
+    //     this.setState({
+    //       usernameError: false
+    //     })
+    //   }
+    //   if (password == '') {
+    //     this.setState({
+    //       passError: true
+    //     })
+    //   } else {
+    //     this.setState({
+    //       passError: false
+    //     })
+    //   }
+    // });
   }
 
   handleChange = (e) => {
-    let { name, value } = e.target
+    let { name, value, username, password } = e.target
     this.setState({
       [name]: value
-
     })
+    username: username;
+    password: password
+
+
+    if (username == '') {
+      this.setState({
+        usernameError: true
+      })
+    } else {
+      this.setState({
+        usernameError: false
+      })
+    }
+    if (password == '') {
+      this.setState({
+        passError: true
+      })
+    } else {
+      this.setState({
+        passError: false
+      })
+    }
+
   }
   render() {
     const { username, password } = this.state;
@@ -89,7 +113,7 @@ class Login extends Component {
                 </Col>
                   <Col sm={12}>
                     <FormControl type="password" placeholder="Password" value={password} name="password" onChange={this.handleChange} />
-                    {this.state.passError && <HelpBlock>Please Enter the Username or Email </HelpBlock>}
+                    {this.state.passError && <HelpBlock>Please Enter the Password </HelpBlock>}
                   </Col>
                 </FormGroup>
                 <FormGroup>
